@@ -1,0 +1,14 @@
+{
+  "name": "exp1",
+  "version": "1.0.0",
+  "description": "experiment 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "Hi there"
+  },
+  "author": "AKshay Ayyanchira",
+  "license": "ISC",
+  "dependencies": {
+    "pug": "^2.0.0-rc.4"
+  }
+}
