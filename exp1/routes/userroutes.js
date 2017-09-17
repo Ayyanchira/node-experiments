@@ -22,12 +22,14 @@ exports.signup = function(req,res){
       "code":404,
       "success":"email is empty"
         });
+        return;
   }
   if (req.body.password != req.body.passwordConfirmation){
     res.send({
       "code":405,
       "success":"Password mismatch"
         });
+        return;
   }
 
   var user={
