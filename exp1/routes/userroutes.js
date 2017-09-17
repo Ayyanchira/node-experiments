@@ -17,6 +17,7 @@ if(!err) {
 
 exports.signup = function(req,res){
   console.log("signup function called");
+  //validation
   if (req.body.email == ""){
     res.send({
       "code":404,
@@ -32,6 +33,7 @@ exports.signup = function(req,res){
         return;
   }
 
+  //object creation
   var user={
     "username":req.body.username,
     "fullname":req.body.fullname,
@@ -59,6 +61,12 @@ exports.signup = function(req,res){
       "code":200,
       "success":"user registered sucessfully"
         });
-  }
+      }
   });
 };
+
+exports.login = function(req,res){
+  console.log("Login API----\n");
+  
+
+}
