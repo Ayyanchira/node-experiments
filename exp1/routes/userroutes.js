@@ -47,7 +47,7 @@ exports.signup = function(req,res){
     }
       res.send({
         "code":400,
-        "failed":"error ocurred";
+        "failed":"error ocurred"
       })
 
 
