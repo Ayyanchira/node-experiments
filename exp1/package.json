@@ -1,14 +1,16 @@
 {
-  "name": "exp1",
+  "name": "product-becon",
   "version": "1.0.0",
-  "description": "experiment 1",
-  "main": "app.js",
+  "description": "api for products using becon",
+  "main": "index.js",
   "scripts": {
-    "test": "Hi there"
+    "test": "echo \"Error:no test specified\" && exit 1"
   },
-  "author": "AKshay Ayyanchira",
+  "author": "dhiraj nayak",
   "license": "ISC",
   "dependencies": {
-    "pug": "^2.0.0-rc.4"
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "mysql": "^2.14.1"
   }
 }
