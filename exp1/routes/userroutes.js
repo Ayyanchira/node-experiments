@@ -42,7 +42,7 @@ exports.signup = function(req,res){
     if(error.failed.errno == 1062){
       res.send({
         "code":401,
-        "failed":"Username already exists. Please try a different username";
+        "failed":"Username already exists. Please try a different username"
       })
     }
       res.send({
