@@ -115,7 +115,8 @@ exports.composeMessage = function(req, res){
   var message={
     "to":req.body.to,
     "from":req.body.from,
-    "message":req.body.message
+    "message":req.body.message,
+    "region":req.body.region
   }
   connection.query('INSERT INTO Messages SET ?',message, function (error, results, fields) {
   if (error) {
