@@ -39,7 +39,7 @@ exports.signup = function(req,res){
   connection.query('INSERT INTO Users SET ?',user, function (error, results, fields) {
   if (error) {
     console.log("error ocurred",error);
-    if(error.failed.errno == 1062){
+    if(error.errno == 1062){
       res.send({
         "code":401,
         "failed":"Username already exists. Please try a different username"
