@@ -111,6 +111,7 @@ exports.login = function(req,res){
 }
 
 exports.composeMessage = function(req, res){
+  console.log("composeMessage API----\n");
   var message={
     "to":req.body.to,
     "from":req.body.from,
