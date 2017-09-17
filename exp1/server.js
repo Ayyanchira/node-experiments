@@ -1,5 +1,5 @@
 var express    = require("express");
-var product = require('./routes/productroutes');
+var user = require('./routes/userroutes');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,7 +16,7 @@ var router = express.Router();
 // router.get('/allProducts',product.allProducts);
 // router.get('/allProducts/:region',product.productsByRegion);
 
-router.get('/signup',product.signup);
+router.get('/signup',user.signup);
 // router.post('/login',product.login);
 // router.post('/getMessages',product.getMessages);
 // router.post('/composeMessage',product.composeMessage);
