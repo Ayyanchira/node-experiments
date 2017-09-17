@@ -84,11 +84,11 @@ exports.login = function(req,res){
           "fullname":results[0].fullname,
           "email":results[0].email
         };
-        var token = jwt.sign(user, 'signingkey');
+        //var token = jwt.sign(user, 'signingkey');
         res.send({
           "code":200,
           "success":"login sucessfull",
-          "token":token,
+          //"token":token,
           "username":user.username
             });
       }

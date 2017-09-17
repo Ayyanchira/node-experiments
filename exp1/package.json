@@ -6,12 +6,11 @@
   "scripts": {
     "test": "echo \"Error:no test specified\" && exit 1"
   },
-  "author": "dhiraj nayak",
+  "author": "Akshay Ayyanchira",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
-    "jsonwebtoken": "^7.4.3",
     "mysql": "^2.14.1"
   }
 }
