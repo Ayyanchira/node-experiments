@@ -16,7 +16,7 @@ var router = express.Router();
 // router.get('/allProducts',product.allProducts);
 // router.get('/allProducts/:region',product.productsByRegion);
 
-router.post('/signup',product.signup);
+router.get('/signup',product.signup);
 // router.post('/login',product.login);
 // router.post('/getMessages',product.getMessages);
 // router.post('/composeMessage',product.composeMessage);
@@ -24,7 +24,7 @@ router.post('/signup',product.signup);
 // router.post('/getAllContacts',product.getAllContacts);
 
 app.use('/api', router);
-//app.listen(3000);
-app.listen(3000, ()=>{
-  console.log('Server started on 3000 port...');
-});
+app.listen(3000);
+// app.listen(3000, ()=>{
+//   console.log('Server started on 3000 port...');
+// });
