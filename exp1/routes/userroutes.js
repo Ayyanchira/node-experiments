@@ -67,6 +67,45 @@ exports.signup = function(req,res){
 
 exports.login = function(req,res){
   console.log("Login API----\n");
-  
+  var username = req.body.username;
+  var password = req.body.password;
+  connection.query('SELECT * FROM Users WHERE username = ?',[username], function (error, results, fields) {
+  if (error) {
+    res.send({
+      "code":400,
+      "failed":"error ocurred"
+    })
+  }else{
+    if(results.length >0){
+      if(results[0].password == password){
+        var user = {
+          "username":results[0].username,
+          "password":results[0].password,
+          "fullname":results[0].fullname,
+          "email":results[0].email
+        };
+        var token = jwt.sign(user, 'signingkey');
+        res.send({
+          "code":200,
+          "success":"login sucessfull",
+          "token":token,
+          "username":user.username
+            });
+      }
+      else{
+        res.send({
+          "code":204,
+          "success":"Email and password does not match"
+            });
+      }
+    }
+    else{
+      res.send({
+        "code":204,
+        "success":"Email does not exits"
+          });
+    }
+  }
+  });
 
 }
