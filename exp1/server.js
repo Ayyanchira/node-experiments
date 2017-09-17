@@ -16,7 +16,7 @@ var router = express.Router();
 // router.get('/allProducts',product.allProducts);
 // router.get('/allProducts/:region',product.productsByRegion);
 
-router.get('/signup',user.signup);
+router.post('/signup',user.signup);
 // router.post('/login',product.login);
 // router.post('/getMessages',product.getMessages);
 // router.post('/composeMessage',product.composeMessage);

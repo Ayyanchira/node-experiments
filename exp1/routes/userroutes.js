@@ -16,18 +16,19 @@ if(!err) {
 
 
 exports.signup = function(req,res){
-  // if (req.body.email == ""){
-  //   res.send({
-  //     "code":404,
-  //     "success":"email is empty"
-  //       });
-  // }
-  // if (req.body.password != req.body.passwordConfirmation){
-  //   res.send({
-  //     "code":405,
-  //     "success":"Password mismatch"
-  //       });
-  // }
+  console.log("signup function called");
+  if (req.body.email == ""){
+    res.send({
+      "code":404,
+      "success":"email is empty"
+        });
+  }
+  if (req.body.password != req.body.passwordConfirmation){
+    res.send({
+      "code":405,
+      "success":"Password mismatch"
+        });
+  }
 
   var user={
     "username":req.body.username,
