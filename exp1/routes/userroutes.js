@@ -41,7 +41,7 @@ exports.signup = function(req,res){
     console.log("error ocurred",error);
     res.send({
       "code":400,
-      "failed":"error ocurred"
+      "failed":error
     })
   }else{
     console.log('The solution is: ', results);
