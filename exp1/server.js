@@ -17,11 +17,11 @@ var router = express.Router();
 // router.get('/allProducts/:region',product.productsByRegion);
 
 router.post('/signup',user.signup);
-// router.post('/login',product.login);
-// router.post('/getMessages',product.getMessages);
-// router.post('/composeMessage',product.composeMessage);
-// router.post('/deleteMessage',product.deleteMessage);
-// router.post('/getAllContacts',product.getAllContacts);
+router.post('/login',product.login);
+router.post('/getMessages',product.getMessages);
+router.post('/composeMessage',product.composeMessage);
+router.post('/deleteMessage',product.deleteMessage);
+router.post('/getAllContacts',product.getAllContacts);
 
 app.use('/api', router);
 app.listen(3000);
