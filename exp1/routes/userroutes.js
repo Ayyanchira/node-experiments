@@ -45,12 +45,11 @@ exports.signup = function(req,res){
         "failed":"Username already exists. Please try a different username";
       })
     }
-    else{
       res.send({
         "code":400,
         "failed":"error ocurred";
       })
-    }
+
 
   }else{
     console.log('The solution is: ', results);
