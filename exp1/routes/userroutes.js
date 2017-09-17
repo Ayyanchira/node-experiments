@@ -109,3 +109,26 @@ exports.login = function(req,res){
   });
 
 }
+
+exports.composeMessage = function(req, res){
+  var message={
+    "to":req.body.to,
+    "from":req.body.from,
+    "message":req.body.message
+  }
+  connection.query('INSERT INTO Messages SET ?',message, function (error, results, fields) {
+  if (error) {
+    console.log("error ocurred",error);
+      res.send({
+        "code":400,
+        "failed":"error ocurred"
+      })
+  }else{
+    console.log('The solution is: ', results);
+    res.send({
+      "code":200,
+      "success":"Message sent!"
+        });
+      }
+  });
+}
