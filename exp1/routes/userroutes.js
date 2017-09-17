@@ -102,7 +102,7 @@ exports.login = function(req,res){
     else{
       res.send({
         "code":204,
-        "success":"Email does not exits"
+        "success":"Username does not exits."
           });
     }
   }
