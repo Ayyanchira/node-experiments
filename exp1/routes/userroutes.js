@@ -162,9 +162,9 @@ exports.composeMessage = function(req, res){
 
   //get Messages
   exports.getMessages = function(req, res){
-    console.log("getting all contacts");
 
     var username = req.body.username;
+    console.log("getting messages for "+username);
     connection.query('Select * from Messages where to = ?',[username], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
