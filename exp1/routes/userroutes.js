@@ -201,13 +201,13 @@ exports.composeMessage = function(req, res){
       });
     }else if (results.affectedRows == 0) {
       res.send({
-        "code":202
+        "code":202,
         "success":"Message already deleted from server."
       });
     }else{
       res.send({
         "code":200,
-        "success":results
+        "success":"Message deleted."
           });
     }
     });
