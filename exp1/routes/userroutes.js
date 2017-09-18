@@ -230,8 +230,17 @@ exports.readMessage = function(req, res){
         "code":400,
         "failed":"error ocurred"
       });
+    }
     else{
-      markAsRead(messageId);
+      if (results[0].islock == 0) {
+        markAsRead(messageId);
+      }
+      else {
+        res.send({
+          "code":405,
+          "message":"message is locked. Cannot be marked as read."
+        });
+      }
     }
   }
 
