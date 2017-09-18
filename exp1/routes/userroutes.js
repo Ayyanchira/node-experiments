@@ -178,13 +178,13 @@ exports.getMessages = function(req, res){
     }else if (results.length>0) {
       var productArr=results;
       console.log(productArr);
-      for(var i=0;i<productArr.length;i++){
-        console.log('inside for loop');
-        if productArr(i).islock == 1{
-          productArr(i).message = "Message locked";
-          console.log('message altered');
-        }
-      }
+      // for(var i=0;i<productArr.length;i++){
+      //   console.log('inside for loop');
+      //   if productArr(i).islock == 1{
+      //     productArr(i).message = "Message locked";
+      //     console.log('message altered');
+      //   }
+      // }
       res.send({
         "code":200,
         "result":productArr
