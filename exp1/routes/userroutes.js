@@ -223,7 +223,7 @@ exports.deleteMessage = function(req, res){
 //read message
 exports.readMessage = function(req, res){
     var messageId = req.body.messageId;
-    connection.query('select * Messages where messageId = ?',[messageId], function (error, results, fields) {
+    connection.query('select * from Messages where messageId = ?',[messageId], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
