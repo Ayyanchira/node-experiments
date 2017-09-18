@@ -271,6 +271,12 @@ exports.unlockMessage = function(req, res){
           "failed":"error ocurred"
         });
       }
+      else if (results.affectedRows == 0) {
+        res.send({
+          "code":402,
+          "success":"message either already unlocked or doesn't exists at all"
+            });
+      }
       else{
         res.send({
           "code":200,
