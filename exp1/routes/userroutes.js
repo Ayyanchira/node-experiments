@@ -177,6 +177,7 @@ exports.getMessages = function(req, res){
       });
     }else if (results.length>0) {
       var productArr=results;
+      console.log(productArr);
       for(var i=0;i<productArr.length;i++){
         console.log('inside for loop');
         if productArr(i).islock == 1{
