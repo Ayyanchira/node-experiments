@@ -242,7 +242,8 @@ exports.readMessage = function(req, res){
         });
       }
     }
-  }
+  });
+}
 
   function markAsRead(req,res){
     console.log('mark as read called for message id'+req.messageId);
