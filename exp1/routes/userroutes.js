@@ -165,7 +165,6 @@ exports.getAllContacts = function(req, res){
 
 //get Messages
 exports.getMessages = function(req, res){
-
     var username = req.body.username;
     console.log("getting messages for "+username);
     connection.query('Select * from Messages where recipient = ?',[username], function (error, results, fields) {
@@ -177,11 +176,10 @@ exports.getMessages = function(req, res){
       });
     }else if (results.length>0) {
       var productArr=results;
-      console.log(productArr[0].islock);
       for(var i=0;i<productArr.length;i++){
         console.log('inside for loop');
         if (productArr[i].islock == 1){
-          productArr[i].message = "Message locked";
+          productArr[i].message = "Message locked. Go to "+productArr[i].message+" region to unlock the message";
           console.log('message altered');
         }
       }
