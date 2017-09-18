@@ -134,3 +134,26 @@ exports.composeMessage = function(req, res){
       }
   });
 }
+
+//getAllContacts
+  exports.getAllContacts = function(req, res){
+    connection.query('Select username from Users', function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+        "code":400,
+        "failed":"error ocurred"
+      });
+    }else if (results.length>0) {
+      var productArr=[];
+      res.send({
+        "result":results
+      });
+    }else{
+      res.send({
+        "code":200,
+        "success":"no products in the store"
+          });
+    }
+    });
+  }
