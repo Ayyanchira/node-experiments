@@ -164,9 +164,8 @@ exports.composeMessage = function(req, res){
   exports.getMessages = function(req, res){
 
     var username = req.body.username;
-    var query = "Select * from Messages where to = "+username;
     console.log("getting messages for "+username);
-    connection.query(query, function (error, results, fields) {
+    connection.query('Select * from Messages where recipient = ?',[username], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
