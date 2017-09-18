@@ -232,7 +232,7 @@ exports.readMessage = function(req, res){
       });
     }else {
       if (results.length>0) {
-        
+
         if (result.islock==1) {
           connection.query('update Messages set isread = 1 where messageid =?',[messageId], function (error, results, fields) {
           if (error) {
@@ -251,3 +251,4 @@ exports.readMessage = function(req, res){
         }
     }
   }
+}
