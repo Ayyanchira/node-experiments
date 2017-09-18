@@ -274,7 +274,7 @@ exports.unlockMessage = function(req, res){
       else if (results.affectedRows == 0) {
         res.send({
           "code":402,
-          "success":"message either already unlocked or doesn't exists at all"
+          "success":"the message is either already unlocked or doesn't exists at all"
             });
       }
       else{
