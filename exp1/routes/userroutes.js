@@ -137,6 +137,7 @@ exports.composeMessage = function(req, res){
 
 //getAllContacts
   exports.getAllContacts = function(req, res){
+    console.log("getting all contacts");
     connection.query('Select username from Users', function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
