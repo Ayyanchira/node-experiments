@@ -179,7 +179,7 @@ exports.getMessages = function(req, res){
       for(var i=0;i<productArr.length;i++){
         console.log('inside for loop');
         if (productArr[i].islock == 1){
-          productArr[i].message = "Message locked. Go to "+productArr[i].message+" region to unlock the message";
+          productArr[i].message = "Message locked. Go to "+productArr[i].region+" region to unlock the message";
           console.log('message altered');
         }
       }
