@@ -139,7 +139,7 @@ exports.composeMessage = function(req, res){
   exports.getAllContacts = function(req, res){
     console.log("getting all contacts");
     var username = req.body.username; //replace it by jwt implementation
-    connection.query('Select username from Users where username != ',[username], function (error, results, fields) {
+    connection.query('Select username from Users where username != ?',[username], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
