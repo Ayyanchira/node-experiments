@@ -177,10 +177,10 @@ exports.getMessages = function(req, res){
       });
     }else if (results.length>0) {
       var productArr=results;
-      for i in productArr{
+      for(var i=0;i<productArr.length;i++){
         console.log('inside for loop');
-        if i.islock == 1{
-          i.message = "Message locked";
+        if productArr[i].islock == 1{
+          productArr[i].message = "Message locked";
           console.log('message altered');
         }
       }
