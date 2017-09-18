@@ -262,7 +262,7 @@ exports.readMessage = function(req, res){
 //unlockMessage
 exports.unlockMessage = function(req, res){
     var messageId = req.body.messageId;
-    console.log("unlocking message with messageid "+messageid);
+    console.log("unlocking message with messageid "+messageId);
     connection.query('update Messages set islock = 0 where messageid =?',[messageId], function (error, results, fields) {
       if (error) {
         console.log("error ocurred",error);
