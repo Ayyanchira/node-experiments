@@ -259,4 +259,23 @@ exports.readMessage = function(req, res){
   });
 }
 
-//connection.query('update Messages set isread = 1 where messageid =?',[messageId], function (error, results, fields)
+//unlockMessage
+exports.unlockMessage = function(req, res){
+    var messageId = req.body.messageId;
+    console.log("unlocking message with messageid "+messageid);
+    connection.query('update Messages set islock = 0 where messageid =?',[messageId], function (error, results, fields) {
+      if (error) {
+        console.log("error ocurred",error);
+        res.send({
+          "code":400,
+          "failed":"error ocurred"
+        });
+      }
+      else{
+        res.send({
+          "code":200,
+          "success":"message successfully unlocked."
+            });
+      }
+    });
+}
