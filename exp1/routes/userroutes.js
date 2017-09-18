@@ -165,7 +165,7 @@ exports.composeMessage = function(req, res){
     console.log("getting all contacts");
 
     username = req.body.username;
-    connection.query('Select * from Messages where 'to' =? ',username, function (error, results, fields) {
+    connection.query('Select * from Messages where to = ?',username, function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
