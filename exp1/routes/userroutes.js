@@ -230,25 +230,12 @@ exports.readMessage = function(req, res){
         "code":400,
         "failed":"error ocurred"
       });
-    }else {
-      if (results.length>0) {
-        if (result.islock==1) {
-          connection.query('update Messages set isread = 1 where messageid =?',[messageId], function (error, results, fields) {
-          if (error) {
-            console.log("error ocurred",error);
-            res.send({
-              "code":400,
-              "failed":"error ocurred"
-            });
-          }
-          else {
-            res.send({
-              "code":200,
-              "success":"message marked as read"
-                });
-              }
-            });
-      });
+    else{
+      markAsRead(messageId);
     }
   }
-};
+
+  function markAsRead(req,res){
+    console.log('mark as read called for message id'+req.messageId);
+  }
+//connection.query('update Messages set isread = 1 where messageid =?',[messageId], function (error, results, fields)
