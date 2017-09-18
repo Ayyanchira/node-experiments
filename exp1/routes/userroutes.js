@@ -186,3 +186,24 @@ exports.composeMessage = function(req, res){
     }
     });
   }
+
+  //deleteMessage
+  exports.deleteMessage = function(req, res){
+
+    var messageId = req.body.messageId;
+    console.log("deleting message...");
+    connection.query('delete * from Messages where messageId = ?',[messageId], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+        "code":400,
+        "failed":"error ocurred"
+      });
+    }else{
+      res.send({
+        "code":200,
+        "success":results
+          });
+    }
+    });
+  }
