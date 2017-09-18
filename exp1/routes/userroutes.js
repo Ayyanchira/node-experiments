@@ -179,8 +179,8 @@ exports.getMessages = function(req, res){
       var productArr=results;
       for(var i=0;i<productArr.length;i++){
         console.log('inside for loop');
-        if productArr[i].islock == 1{
-          productArr[i].message = "Message locked";
+        if productArr(i).islock == 1{
+          productArr(i).message = "Message locked";
           console.log('message altered');
         }
       }
