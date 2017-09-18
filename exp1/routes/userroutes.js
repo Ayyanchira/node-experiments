@@ -192,7 +192,7 @@ exports.composeMessage = function(req, res){
 
     var messageId = req.body.messageId;
     console.log("deleting message...");
-    connection.query('delete * from Messages where messageId = ?',[messageId], function (error, results, fields) {
+    connection.query('delete from Messages where messageId = ?',[messageId], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
