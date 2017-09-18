@@ -18,11 +18,11 @@ var router = express.Router();
 
 router.post('/signup',user.signup);
 router.post('/login',user.login);
-//router.post('/getMessages',user.getMessages);
+router.post('/getMessages',user.getMessages);
 router.post('/composeMessage',user.composeMessage);
 // router.post('/deleteMessage',user.deleteMessage);
 router.post('/getAllContacts',user.getAllContacts);
-
+//router.post('/readMessage',user.readMessage);
 app.use('/api', router);
 app.listen(3000);
 // app.listen(3000, ()=>{

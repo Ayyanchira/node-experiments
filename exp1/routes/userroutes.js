@@ -138,7 +138,8 @@ exports.composeMessage = function(req, res){
 //getAllContacts
   exports.getAllContacts = function(req, res){
     console.log("getting all contacts");
-    connection.query('Select username from Users', function (error, results, fields) {
+    var username = req.body.username; //replace it by jwt implementation
+    connection.query('Select username from Users where username != ',[username], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
@@ -154,6 +155,33 @@ exports.composeMessage = function(req, res){
       res.send({
         "code":200,
         "success":"no products in the store"
+          });
+    }
+    });
+  }
+
+  //get Messages
+  exports.getMessages = function(req, res){
+    console.log("getting all contacts");
+
+    username = req.body.username;
+    connection.query('Select * from Messages where to=? ',[username], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+        "code":400,
+        "failed":"error ocurred"
+      });
+    }else if (results.length>0) {
+      var productArr=[];
+      res.send({
+        "code":200,
+        "result":results
+      });
+    }else{
+      res.send({
+        "code":201,
+        "success":"No messages found..."
           });
     }
     });
