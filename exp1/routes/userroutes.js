@@ -8,13 +8,14 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err){
-if(!err) {
-    console.log("Database is connected ... nn");
-} else {
-    console.log("Error connecting database ... nn");
-}});
+  if(!err) {
+      console.log("Database is connected..");
+    } else {
+      console.log("Error connecting database..");
+    }
+});
 
-
+//signup
 exports.signup = function(req,res){
   console.log("signup function called");
   //validation
@@ -65,6 +66,7 @@ exports.signup = function(req,res){
   });
 };
 
+//login
 exports.login = function(req,res){
   console.log("Login API----\n");
   var username = req.body.username;
@@ -110,11 +112,12 @@ exports.login = function(req,res){
 
 }
 
+//compose message
 exports.composeMessage = function(req, res){
   console.log("composeMessage API----\n");
   var message={
-    "to":req.body.to,
-    "from":req.body.from,
+    "recipient":req.body.to,
+    "sender":req.body.from,
     "message":req.body.message,
     "region":req.body.region
   }
@@ -136,7 +139,7 @@ exports.composeMessage = function(req, res){
 }
 
 //getAllContacts
-  exports.getAllContacts = function(req, res){
+exports.getAllContacts = function(req, res){
     console.log("getting all contacts");
     var username = req.body.username; //replace it by jwt implementation
     connection.query('Select username from Users where username != ?',[username], function (error, results, fields) {
@@ -160,8 +163,8 @@ exports.composeMessage = function(req, res){
     });
   }
 
-  //get Messages
-  exports.getMessages = function(req, res){
+//get Messages
+exports.getMessages = function(req, res){
 
     var username = req.body.username;
     console.log("getting messages for "+username);
@@ -173,10 +176,17 @@ exports.composeMessage = function(req, res){
         "failed":"error ocurred"
       });
     }else if (results.length>0) {
-      var productArr=[];
+      var productArr=results;
+      for i in productArr{
+        console.log('inside for loop');
+        if i.islock == 1{
+          i.message = "Message locked";
+          console.log('message altered');
+        }
+      }
       res.send({
         "code":200,
-        "result":results
+        "result":productArr
       });
     }else{
       res.send({
@@ -187,9 +197,8 @@ exports.composeMessage = function(req, res){
     });
   }
 
-  //deleteMessage
-  exports.deleteMessage = function(req, res){
-
+//deleteMessage
+exports.deleteMessage = function(req, res){
     var messageId = req.body.messageId;
     console.log("deleting message...");
     connection.query('delete from Messages where messageId = ?',[messageId], function (error, results, fields) {
@@ -212,3 +221,5 @@ exports.composeMessage = function(req, res){
     }
     });
   }
+
+//read message
