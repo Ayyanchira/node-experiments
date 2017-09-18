@@ -177,9 +177,8 @@ exports.getMessages = function(req, res){
     }else if (results.length>0) {
       var productArr=results;
       for(var i=0;i<productArr.length;i++){
-        console.log('inside for loop');
         if (productArr[i].islock == 1){
-          productArr[i].message = "Message locked. Go to "+productArr[i].region+" region to unlock the message";
+          productArr[i].message = "Message locked. Go near "+productArr[i].region+" region to unlock the message";
           console.log('message altered');
         }
       }
@@ -222,3 +221,33 @@ exports.deleteMessage = function(req, res){
   }
 
 //read message
+exports.readMessage = function(req, res){
+    var messageId = req.body.messageId;
+    connection.query('select * Messages where messageId = ?',[messageId], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+        "code":400,
+        "failed":"error ocurred"
+      });
+    }else {
+      if (results.length>0) {
+        
+        if (result.islock==1) {
+          connection.query('update Messages set isread = 1 where messageid =?',[messageId], function (error, results, fields) {
+          if (error) {
+            console.log("error ocurred",error);
+            res.send({
+              "code":400,
+              "failed":"error ocurred"
+            });
+          }
+          else {
+            res.send({
+              "code":200,
+              "success":"message marked as read"
+                });
+          }
+        }
+    }
+  }

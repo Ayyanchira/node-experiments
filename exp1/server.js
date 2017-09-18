@@ -23,6 +23,7 @@ router.post('/composeMessage',user.composeMessage);
 router.post('/deleteMessage',user.deleteMessage);
 router.post('/getAllContacts',user.getAllContacts);
 //router.post('/readMessage',user.readMessage);
+//router.post('/unlockMessage',user.unlockMessage);
 app.use('/api', router);
 app.listen(3000);
 // app.listen(3000, ()=>{
